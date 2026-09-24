@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitBuddy – AI Fitness Plan Generator using Gemini Models</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="/" class="brand">
+        <span class="brand-badge">FB</span>
+        <span>FitBuddy<span style="color: var(--accent-lime);">.</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-btn primary">Home</a>
+        <a href="/all_users" class="nav-btn">Admin Dashboard (all_users)</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <main class="container">
+    <section class="hero">
+      <div class="badge-tag">
+        <span>⚡ Powered by Google Gemini AI & Gemini Flash</span>
+      </div>
+      <h1>FitBuddy – AI Fitness Plan Generator</h1>
+      <p>
+        Scientifically calibrated 7-day personalized workout routines, targeted nutritional recovery,
+        and intelligent feedback-driven adaptation.
+      </p>
+    </section>
+
+    <!-- Athlete Input Form -->
+    <div class="card">
+      <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">
+        Enter Your Physical & Training Parameters
+      </h2>
+      <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
+        Gemini 1.5 Pro will engineer your 7-day split, warm-ups, sets, reps, rest intervals, and cool-downs.
+      </p>
+
+      <form action="/generate" method="POST">
+        <div class="form-grid">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="name">Athlete Name *</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Alex Rivera" required value="Alex Rivera">
+          </div>
+
+          <!-- User ID -->
+          <div class="form-group">
+            <label for="user_id">User ID *</label>
+            <input type="text" id="user_id" name="user_id" class="form-control" placeholder="e.g. USR-101" required value="USR-101">
+          </div>
+
+          <!-- Age -->
+          <div class="form-group">
+            <label for="age">Age (Years) *</label>
+            <input type="number" id="age" name="age" class="form-control" min="14" max="90" required value="27">
+          </div>
+
+          <!-- Weight -->
+          <div class="form-group">
+            <label for="weight">Weight (kg) *</label>
+            <input type="number" id="weight" name="weight" step="0.5" min="30" max="250" class="form-control" required value="74">
+          </div>
+
+          <!-- Fitness Goal -->
+          <div class="form-group">
+            <label for="fitness_goal">Fitness Goal *</label>
+            <select id="fitness_goal" name="fitness_goal" class="form-control" required>
+              <option value="Muscle Gain" selected>Muscle Gain (Hypertrophy & Growth)</option>
+              <option value="Weight Loss">Weight Loss (Fat Loss & EPOC Conditioning)</option>
+              <option value="General Fitness">General Fitness (Longevity & Stamina)</option>
+              <option value="Flexibility">Flexibility (Mobility & Joint Health)</option>
+            </select>
+          </div>
+
+          <!-- Workout Intensity -->
+          <div class="form-group">
+            <label for="workout_intensity">Workout Intensity *</label>
+            <select id="workout_intensity" name="workout_intensity" class="form-control" required>
+              <option value="Low">Low (Gentle Mobility & Active Recovery)</option>
+              <option value="Medium" selected>Medium (Optimal Progressive Overload)</option>
+              <option value="High">High (High Intensity Interval & Peak Output)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <span>⚡ Generate 7-Day Plan with Gemini</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Key Features Section -->
+    <div class="card" style="margin-top: 2rem; border-color: rgba(163, 230, 53, 0.3);">
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <span style="background: rgba(163, 230, 53, 0.15); color: var(--accent-lime); padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+          System Overview
+        </span>
+      </div>
+      <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+        FitBuddy Key Features
+      </h2>
+      <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">
+        Complete end-to-end architecture powered by Google Gemini, SQLite persistence, and responsive UI.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: var(--accent-lime); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 1</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">Personalized 7-Day Workout Plan</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">Generates workouts based on age, weight, fitness goal, and intensity.</p>
+        </div>
+
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: var(--accent-cyan); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 2</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">AI-Powered Workout Generation</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">Uses Gemini 1.5 Pro to create structured workout plans with warm-ups, sets, reps, and cooldowns.</p>
+        </div>
+
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: #fbbf24; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 3</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">Nutrition & Recovery Tips</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">Gemini Flash provides quick, goal-based nutrition and recovery suggestions.</p>
+        </div>
+
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: #f43f5e; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 4</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">Feedback-Based Plan Updating</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">Users can give feedback, and AI updates the workout plan accordingly.</p>
+        </div>
+
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: #60a5fa; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 5</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">User Data Storage</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">User details and workout plans are stored using SQLite + SQLAlchemy.</p>
+        </div>
+
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: #a78bfa; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 6</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">Admin Dashboard</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">Admins can view users and their original and updated workout plans.</p>
+        </div>
+
+        <div style="background: #111115; border: 1px solid #23232b; border-radius: 0.625rem; padding: 1.1rem;">
+          <div style="color: #34d399; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.25rem;">Feature 7</div>
+          <strong style="color: #ffffff; font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">Responsive User Interface</strong>
+          <p style="color: #9ca3af; font-size: 0.8125rem; margin: 0;">HTML, CSS, and Jinja2 provide a clean and mobile-responsive interface.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FitBuddy – AI Fitness Plan Generator using Gemini Models · SQLite Persistence · FastAPI</p>
+    </div>
+  </footer>
+
+</body>
+</html>
